@@ -349,8 +349,8 @@
 -analyzer:"/home/nathan/Unity/Hub/Editor/2022.3.32f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"/home/nathan/Unity/Hub/Editor/2022.3.32f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/ModularFirstPersonController/FirstPersonController/FirstPersonController.cs"
-"Assets/Polytope Studio/Lowpoly_Demos/Environment_Free/Helpers/MouseLook.cs"
-"Assets/Polytope Studio/Lowpoly_Demos/Environment_Free/Helpers/PlayerMovement.cs"
+"Assets/Scripts/HitReplace.cs"
+"Assets/Scripts/RayCast.cs"
 "Assets/Scripts/TerrainGenerator.cs"
 "Assets/Scripts/TerrainManager.cs"
 -langversion:9.0

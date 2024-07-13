@@ -101,10 +101,14 @@ MonoBehaviour:
   zSize: 30
   noiseScale: 0.25
   heightMultiplier: 2
-  treePrefab: {fileID: 6117071349010126079, guid: d250af4848f51154f9a2bf6a85b60ac2, type: 3}
-  rockPrefab: {fileID: 2804321427668277467, guid: 0f3d14a9a6b2ceb469c15d151552a614, type: 3}
+  treePrefab: {fileID: 1000011496051054, guid: 5cab19fdb480c4e94b567019c5375991, type: 3}
+  rockPrefab: {fileID: 1000012027079872, guid: c87daa0167cf2416faa1b7d654e2a584, type: 3}
+  grassPrefab: {fileID: 1000010133056292, guid: 127db51d4c34446db8838220f99d6408, type: 3}
+  flowerPrefab: {fileID: 1000013455125044, guid: 243412fc5086d49ac969ec51fbbab6e3, type: 3}
   treeCount: 5
-  rockCount: 5
+  rockCount: 2
+  grassCount: 50
+  flowerCount: 20
 --- !u!64 &742167743032252824
 MeshCollider:
   m_ObjectHideFlags: 0

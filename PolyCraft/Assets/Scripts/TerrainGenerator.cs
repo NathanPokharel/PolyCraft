@@ -17,8 +17,12 @@ public class TerrainGenerator : MonoBehaviour
 
     public GameObject treePrefab; // Single prefab for trees
     public GameObject rockPrefab; // Single prefab for rocks
+    public GameObject grassPrefab; // Single prefab for grass
+    public GameObject flowerPrefab; // Single prefab for grass
     public int treeCount = 10;
     public int rockCount = 5;
+    public int grassCount = 50; // Number of grass patches to place
+    public int flowerCount = 20; // Number of grass patches to place
 
     void Awake()
     {
@@ -36,10 +40,12 @@ public class TerrainGenerator : MonoBehaviour
 
     void CreateShape(Vector2 offset)
     {
-        vertices = new Vector3[(xSize+1)*(zSize+1)];
+        vertices = new Vector3[(xSize + 1) * (zSize + 1)];
         int i = 0;
-        for (int z = 0; z <= zSize; z++){
-            for (int x = 0; x <= xSize; x++){
+        for (int z = 0; z <= zSize; z++)
+        {
+            for (int x = 0; x <= xSize; x++)
+            {
                 float y = Mathf.PerlinNoise((x + offset.x) * noiseScale, (z + offset.y) * noiseScale) * heightMultiplier;
                 vertices[i] = new Vector3(x, y, z);
                 i++;
@@ -50,8 +56,10 @@ public class TerrainGenerator : MonoBehaviour
         int tris = 0;
         triangles = new int[xSize * zSize * 6];
 
-        for (int z = 0; z < zSize; z++){
-            for (int x = 0; x < xSize; x++){
+        for (int z = 0; z < zSize; z++)
+        {
+            for (int x = 0; x < xSize; x++)
+            {
                 triangles[0 + tris] = 0 + vert;
                 triangles[1 + tris] = vert + xSize + 1;
                 triangles[2 + tris] = vert + 1;
@@ -78,6 +86,8 @@ public class TerrainGenerator : MonoBehaviour
     {
         PlaceTrees(offset);
         PlaceRocks(offset);
+        PlaceGrass(offset); // Call the method to place grass
+        PlaceFlower(offset); // Call the method to place grass
     }
 
     void PlaceTrees(Vector2 offset)
@@ -97,6 +107,26 @@ public class TerrainGenerator : MonoBehaviour
             Vector3 position = GetRandomPosition(offset);
             GameObject rock = Instantiate(rockPrefab, position, Quaternion.identity);
             rock.transform.parent = this.transform;
+        }
+    }
+
+    void PlaceGrass(Vector2 offset)
+    {
+        for (int i = 0; i < grassCount; i++)
+        {
+            Vector3 position = GetRandomPosition(offset);
+            GameObject grass = Instantiate(grassPrefab, position, Quaternion.identity);
+            grass.transform.parent = this.transform;
+        }
+    }
+
+    void PlaceFlower(Vector2 offset)
+    {
+        for (int i = 0; i < flowerCount; i++)
+        {
+            Vector3 position = GetRandomPosition(offset);
+            GameObject grass = Instantiate(flowerPrefab, position, Quaternion.identity);
+            grass.transform.parent = this.transform;
         }
     }
 
